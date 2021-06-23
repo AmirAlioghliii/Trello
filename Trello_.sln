@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31402.337
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Trello_", "Trello_\Trello_.csproj", "{BE8E568F-E71A-49C7-8109-3A0AB2BEF669}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infra", "Infra\Infra.csproj", "{9772E520-5090-4D20-AEFF-2F753E2CDEE8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application", "Application\Application.csproj", "{C8B7F502-9C7E-4AA0-A94A-783030EF6FA2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BE8E568F-E71A-49C7-8109-3A0AB2BEF669}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE8E568F-E71A-49C7-8109-3A0AB2BEF669}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE8E568F-E71A-49C7-8109-3A0AB2BEF669}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE8E568F-E71A-49C7-8109-3A0AB2BEF669}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9772E520-5090-4D20-AEFF-2F753E2CDEE8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9772E520-5090-4D20-AEFF-2F753E2CDEE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9772E520-5090-4D20-AEFF-2F753E2CDEE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9772E520-5090-4D20-AEFF-2F753E2CDEE8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C8B7F502-9C7E-4AA0-A94A-783030EF6FA2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8B7F502-9C7E-4AA0-A94A-783030EF6FA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8B7F502-9C7E-4AA0-A94A-783030EF6FA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8B7F502-9C7E-4AA0-A94A-783030EF6FA2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FCC2C00C-C0BE-48EC-A2B1-3316267BA38B}
+	EndGlobalSection
+EndGlobal
