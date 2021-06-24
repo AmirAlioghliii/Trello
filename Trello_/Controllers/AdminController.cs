@@ -46,6 +46,14 @@ namespace Trello_.Controllers
             return await _mediator.Send(model);
         }
 
+
+        [HttpPost]
+        public async Task<IEnumerable<UserTask>> GetDoneTasks(AdminGetDoneTasksQuery model)
+        {
+            return await _mediator.Send(model);
+        }
+
+
         [HttpPost]
         public async Task<int> AddNewCategory(AdminAddCategoryCommand model)
         {
@@ -57,5 +65,7 @@ namespace Trello_.Controllers
         {
             return await _mediator.Send(model);
         }
+
+
     }
 }

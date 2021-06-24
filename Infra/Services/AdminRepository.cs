@@ -41,6 +41,11 @@ namespace Infra.Services
 
         public async Task<IEnumerable<UserTask>> GetArchiveTasks(string adminId)
         {
+            return await _context.UserTasks.Where(u => u.AdminId == adminId && u.Status == "Verify").ToListAsync();
+        }
+
+        public async Task<IEnumerable<UserTask>> GetDoneTasks(string adminId)
+        {
             return await _context.UserTasks.Where(u => u.AdminId == adminId && u.Status == "Done").ToListAsync();
         }
     }

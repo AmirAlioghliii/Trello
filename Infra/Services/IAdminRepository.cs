@@ -14,7 +14,7 @@ namespace Infra.Services
         Task AddCategory(Category category);
         Task<IEnumerable<UserTask>> GetAllTasks(string adminId);
         Task<IEnumerable<UserTask>> GetArchiveTasks(string adminId);
-
+        Task<IEnumerable<UserTask>> GetDoneTasks(string adminId);
 
     }
 }
