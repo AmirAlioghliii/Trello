@@ -25,7 +25,7 @@ namespace Infra.Services
 
         public async Task AddTaskAsync(UserTask task)
         {
-            await _context.AddAsync(task);
+            await _context.UserTasks.AddAsync(task);
         }
 
         public async Task ChangeTaskStatus(int taskId, string status)
@@ -39,7 +39,7 @@ namespace Infra.Services
             return await _context.UserTasks.Where(u => u.AdminId == adminId).ToListAsync();
         }
 
-        public async Task<IEnumerable<UserTask>> GetarchiveTasks(string adminId)
+        public async Task<IEnumerable<UserTask>> GetArchiveTasks(string adminId)
         {
             return await _context.UserTasks.Where(u => u.AdminId == adminId && u.Status == "Done").ToListAsync();
         }

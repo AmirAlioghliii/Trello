@@ -22,6 +22,7 @@ using Trello_.Models;
 using Trello_.Services;
 using Application.AutoMapper;
 using Microsoft.OpenApi.Models;
+using Infra.Services;
 
 namespace Trello_
 {
@@ -37,6 +38,9 @@ namespace Trello_
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
+
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Trello_", Version = "v1" });

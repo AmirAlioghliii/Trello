@@ -13,7 +13,7 @@ namespace Infra.Services
         Task ChangeTaskStatus(int taskId, string status);
         Task AddCategory(Category category);
         Task<IEnumerable<UserTask>> GetAllTasks(string adminId);
-        Task<IEnumerable<UserTask>> GetarchiveTasks(string adminId);
+        Task<IEnumerable<UserTask>> GetArchiveTasks(string adminId);
 
 
     }

@@ -1,6 +1,8 @@
-﻿using Application.Commands.Users;
+﻿using Application.Commands.Admin;
+using Application.Commands.Users;
 using Application.Queries.Users;
 using AutoMapper;
+using Infra.Models;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -20,6 +22,8 @@ namespace Application.AutoMapper
             CreateMap<LoginQuery, ApplicationUser>();
             CreateMap<RegisterAdminCommand, ApplicationUser>()
                 .ForMember(p=>p.UserName,p=>p.MapFrom(o=>o.Email));
+            CreateMap<AddTaskCommand, UserTask>().ForMember(a => a.Status, a => a.MapFrom(a => "Created"));
+            CreateMap<AdminAddCategoryCommand, Category>();
         }
     }
 }
