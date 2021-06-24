@@ -6038,9 +6038,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\MySource\\Trello_\\Trello_\\Trello_.csproj",
-      "projectName": "Trello_",
-      "projectPath": "D:\\MySource\\Trello_\\Trello_\\Trello_.csproj",
+      "projectUniqueName": "D:\\MySource\\Trello_\\Trello_\\Trello.Api.csproj",
+      "projectName": "Trello.Api",
+      "projectPath": "D:\\MySource\\Trello_\\Trello_\\Trello.Api.csproj",
       "packagesPath": "C:\\Users\\Amir\\.nuget\\packages\\",
       "outputPath": "D:\\MySource\\Trello_\\Trello_\\obj\\",
       "projectStyle": "PackageReference",

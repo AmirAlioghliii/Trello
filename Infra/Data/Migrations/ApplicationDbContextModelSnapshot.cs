@@ -284,8 +284,8 @@ namespace Infra.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "dda514ee-fe1e-4541-a512-6750530686e0",
-                            ConcurrencyStamp = "d3e3020b-1c87-4ba3-9fac-a4859cc796bc",
+                            Id = "873c65ce-87f7-41bf-8fac-3b0be0b0eeb5",
+                            ConcurrencyStamp = "6f32ff32-4b8a-4176-8693-17b5f2313816",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         });
@@ -294,6 +294,9 @@ namespace Infra.Data.Migrations
             modelBuilder.Entity("Trello_.Models.ApplicationUser", b =>
                 {
                     b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
+
+                    b.Property<string>("ConnectionId")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasDiscriminator().HasValue("ApplicationUser");
                 });
