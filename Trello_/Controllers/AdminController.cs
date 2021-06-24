@@ -33,20 +33,15 @@ namespace Trello_.Controllers
            return await _mediator.Send(model);
         }
 
+
         [HttpPost]
-        public async Task<int> Newtask2(AddTaskCommand model)
+        public async Task<IEnumerable<UserTask>> GetAllTasks(AdminGetAllQuery model)
         {
             return await _mediator.Send(model);
         }
 
-        [HttpGet]
-        public async Task<IEnumerable<UserTask>> GetAllTasks([FromQuery]AdminGetAllQuery model)
-        {
-            return await _mediator.Send(model);
-        }
-
-        [HttpGet]
-        public async Task<IEnumerable<UserTask>> GetArchiveTasks([FromQuery] AdminArchiveTasksQuery model)
+        [HttpPost]
+        public async Task<IEnumerable<UserTask>> GetArchiveTasks( AdminArchiveTasksQuery model)
         {
             return await _mediator.Send(model);
         }
