@@ -23,6 +23,7 @@ using Trello_.Services;
 using Application.AutoMapper;
 using Microsoft.OpenApi.Models;
 using Infra.Services;
+using Application.Workers;
 
 namespace Trello_
 {
@@ -39,7 +40,7 @@ namespace Trello_
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddScoped<IUnitOfWork, UnitOfWork>();
-
+            services.AddHostedService<WarningWorker>();
 
             services.AddSwaggerGen(c =>
             {

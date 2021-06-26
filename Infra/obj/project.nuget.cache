@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "uiaU0z05KGyUoO3aTZlCLy8s2DVuPMs00H11kVmKtlZmiTCorkhaHUyHbbRjIYwmaGvdJYDLhUWsB1nZgTVGjQ==",
+  "dgSpecHash": "BXP/B1To3rnE0IpB3Bdgp0d/nijd+b0EwFu/qAlloFVAv0+y2GrlMnCWDOwdZXTN8hiKlmLf9jXWsMJGplkp8g==",
   "success": true,
-  "projectFilePath": "D:\\MySource\\Trello_\\Infra\\Infra.csproj",
+  "projectFilePath": "C:\\Trello\\Trello\\Infra\\Infra.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Amir\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
     "C:\\Users\\Amir\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\8.1.1\\automapper.extensions.microsoft.dependencyinjection.8.1.1.nupkg.sha512",

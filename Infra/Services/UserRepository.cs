@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Infra.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,9 +18,19 @@ namespace Infra.Services
             _context = context;
         }
 
+        public async Task<IEnumerable< UserTask>> GetAllTasks()
+        {
+           return await _context.UserTasks.ToListAsync();
+        }
+
         public async Task<ApplicationUser> GetUserByEmailAsync(string email)
         {
            return await _context.ApplicationUsers.SingleOrDefaultAsync(u => u.Email == email);
+        }
+
+        public async Task<ApplicationUser> GetUserById(string id)
+        {
+           return await _context.ApplicationUsers.SingleOrDefaultAsync(u => u.Id == id);
         }
     }
 }

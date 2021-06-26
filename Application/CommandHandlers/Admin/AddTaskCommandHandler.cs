@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Trello.Api.Hubs;
 using Trello_.Extensions;
 
 namespace Application.CommandHandlers.Admin
@@ -30,10 +31,17 @@ namespace Application.CommandHandlers.Admin
         public async Task<int> Handle(AddTaskCommand request, CancellationToken cancellationToken)
         {
             var usertask = _mapper.Map<UserTask>(request);
+            usertask.TaskTime = DateTime.Now + TimeSpan.FromHours(6);
             usertask.AdminId = _accessor.GetUserId();
             await _unitOfWork.AdminRepository.AddTaskAsync(usertask);
+            
+
+            SendMessageHub hub = new SendMessageHub(_accessor);
+            var user = await _unitOfWork.UserRepository.GetUserById(usertask.UserId);
+            await hub.SendmessageToClient(user.ConnectionId, "Your Task");
             await _unitOfWork.SaveChangesAsync();
             return usertask.Id;
+             
         }
     }
 }

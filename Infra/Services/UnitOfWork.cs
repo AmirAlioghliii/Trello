@@ -18,10 +18,13 @@ namespace Infra.Services
 
         private IAdminRepository _adminRepository;
         private ICustomerRepository _customerRepository;
+        private IUserRepository _userRepository;
 
         public IAdminRepository AdminRepository => _adminRepository ??= new AdminRepository(_context);
 
         public ICustomerRepository CustomerRepository => _customerRepository ??= new CustomerRepository(_context);
+
+        public IUserRepository UserRepository => _userRepository ??= new UserRepository(_context);
 
         public async Task BeginTransactionAsync()
         {

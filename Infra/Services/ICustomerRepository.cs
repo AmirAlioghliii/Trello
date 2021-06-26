@@ -9,7 +9,7 @@ namespace Infra.Services
 {
      public interface ICustomerRepository
     {
-        Task<IEnumerable<UserTask>> GetAllTasks(string userid);
-        Task ChangeTaskStatus(int TaskId, string Status);
+        Task<IEnumerable<UserTask>> GetAllTasks(string userId);
+        Task ChangeTaskStatus(int taskId, string status);
     }
 }

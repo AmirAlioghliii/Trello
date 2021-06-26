@@ -14,5 +14,6 @@ namespace Infra.Services
         Task RollBackAsync();
         public IAdminRepository AdminRepository { get; }
         public ICustomerRepository CustomerRepository { get; }
+        public IUserRepository UserRepository { get;  }
     }
 }

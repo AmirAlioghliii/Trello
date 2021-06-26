@@ -16,6 +16,7 @@ namespace Infra.Models
         public string UserId{ get; set; }
         public int CategoryId { get; set; }
         public string AdminId { get; set; }
+        public DateTime TaskTime { get; set; }
         public string Status { get; set; }
 
         public ApplicationUser User { get; set; }

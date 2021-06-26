@@ -18,14 +18,16 @@ namespace Infra.Services
             _context = context;
         }
 
-        public async Task ChangeTaskStatus(int taskid, string Status)
+        public async Task ChangeTaskStatus(int taskId, string satus)
         {
-            await _context.UserTasks.SingleOrDefaultAsync(u => u.Id == taskid);
+           var user = await _context.UserTasks.SingleOrDefaultAsync(u => u.Id == taskId);
+            user.Status = satus;
+            
         }
 
-        public async Task<IEnumerable<UserTask>> GetAllTasks(string userid)
+        public async Task<IEnumerable<UserTask>> GetAllTasks(string userId)
         {
-            return await _context.UserTasks.Where(u => u.UserId == userid).ToListAsync();
+            return await _context.UserTasks.Where(u => u.UserId == userId).ToListAsync();
         }
     }
 }

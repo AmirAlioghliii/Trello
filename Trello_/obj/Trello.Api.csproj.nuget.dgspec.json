@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\MySource\\Trello_\\Trello_\\Trello.Api.csproj": {}
+    "C:\\Trello\\Trello\\Trello_\\Trello.Api.csproj": {}
   },
   "projects": {
-    "D:\\MySource\\Trello_\\Application\\Application.csproj": {
+    "C:\\Trello\\Trello\\Application\\Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\MySource\\Trello_\\Application\\Application.csproj",
+        "projectUniqueName": "C:\\Trello\\Trello\\Application\\Application.csproj",
         "projectName": "Application",
-        "projectPath": "D:\\MySource\\Trello_\\Application\\Application.csproj",
+        "projectPath": "C:\\Trello\\Trello\\Application\\Application.csproj",
         "packagesPath": "C:\\Users\\Amir\\.nuget\\packages\\",
-        "outputPath": "D:\\MySource\\Trello_\\Application\\obj\\",
+        "outputPath": "C:\\Trello\\Trello\\Application\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
@@ -33,8 +33,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "D:\\MySource\\Trello_\\Infra\\Infra.csproj": {
-                "projectPath": "D:\\MySource\\Trello_\\Infra\\Infra.csproj"
+              "C:\\Trello\\Trello\\Infra\\Infra.csproj": {
+                "projectPath": "C:\\Trello\\Trello\\Infra\\Infra.csproj"
               }
             }
           }
@@ -60,6 +60,10 @@
             "MediatR.Extensions.Microsoft.DependencyInjection": {
               "target": "Package",
               "version": "[9.0.0, )"
+            },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[5.0.7, )"
             },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
@@ -91,14 +95,14 @@
         }
       }
     },
-    "D:\\MySource\\Trello_\\Infra\\Infra.csproj": {
+    "C:\\Trello\\Trello\\Infra\\Infra.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\MySource\\Trello_\\Infra\\Infra.csproj",
+        "projectUniqueName": "C:\\Trello\\Trello\\Infra\\Infra.csproj",
         "projectName": "Infra",
-        "projectPath": "D:\\MySource\\Trello_\\Infra\\Infra.csproj",
+        "projectPath": "C:\\Trello\\Trello\\Infra\\Infra.csproj",
         "packagesPath": "C:\\Users\\Amir\\.nuget\\packages\\",
-        "outputPath": "D:\\MySource\\Trello_\\Infra\\obj\\",
+        "outputPath": "C:\\Trello\\Trello\\Infra\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
@@ -196,14 +200,14 @@
         }
       }
     },
-    "D:\\MySource\\Trello_\\Trello_\\Trello.Api.csproj": {
+    "C:\\Trello\\Trello\\Trello_\\Trello.Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\MySource\\Trello_\\Trello_\\Trello.Api.csproj",
+        "projectUniqueName": "C:\\Trello\\Trello\\Trello_\\Trello.Api.csproj",
         "projectName": "Trello.Api",
-        "projectPath": "D:\\MySource\\Trello_\\Trello_\\Trello.Api.csproj",
+        "projectPath": "C:\\Trello\\Trello\\Trello_\\Trello.Api.csproj",
         "packagesPath": "C:\\Users\\Amir\\.nuget\\packages\\",
-        "outputPath": "D:\\MySource\\Trello_\\Trello_\\obj\\",
+        "outputPath": "C:\\Trello\\Trello\\Trello_\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
@@ -225,8 +229,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "D:\\MySource\\Trello_\\Application\\Application.csproj": {
-                "projectPath": "D:\\MySource\\Trello_\\Application\\Application.csproj"
+              "C:\\Trello\\Trello\\Application\\Application.csproj": {
+                "projectPath": "C:\\Trello\\Trello\\Application\\Application.csproj"
               }
             }
           }

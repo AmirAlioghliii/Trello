@@ -36,7 +36,7 @@ namespace Trello.Api.Hubs
             var user= await _context.ApplicationUsers.SingleOrDefaultAsync(u => u.Id == _accessor.GetUserId());
             user.ConnectionId = lastconnectionId;
             await _context.SaveChangesAsync();
-
+            
 
         }
 
