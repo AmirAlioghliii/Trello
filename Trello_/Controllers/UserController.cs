@@ -53,18 +53,6 @@ namespace Trello_.Controllers
             return await _mediator.Send(model);
         }
 
-        [HttpGet]
-        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
-        public IActionResult Test()
-        {
-            return Ok(_accessor.GetUserId());
-        }
-
-        [HttpGet]
-        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Admin")]
-        public IActionResult TestAdmin()
-        {
-            return Ok(_accessor.GetUserId());
-        }
+      
     }
 }

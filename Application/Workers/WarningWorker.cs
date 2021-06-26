@@ -33,8 +33,7 @@ namespace Application.Workers
                 {
                     try
                     {
-                        await Task.Delay(TimeSpan.FromSeconds(10));
-                         
+                       
                         var unitOfWork = scope.ServiceProvider.GetRequiredService<IUnitOfWork>();
                         var accessor = scope.ServiceProvider.GetRequiredService<IHttpContextAccessor>();
                         SendMessageHub hub = new SendMessageHub(accessor);
@@ -44,18 +43,19 @@ namespace Application.Workers
 
                         foreach (var item in tasks)
                         {
-                            if (DateTime.Now> item.TaskTime-TimeSpan.FromHours(1))
+                            if (DateTime.Now> item.TaskTime-TimeSpan.FromHours(1)&& DateTime.Now < item.TaskTime-TimeSpan.FromMinutes(59))
                             {
                                 var user =await unitOfWork.UserRepository.GetUserById(item.UserId);
-                                await hub.SendmessageToClient(user.ConnectionId,"Task Reject");
+                                await hub.SendMessageToClient(user.ConnectionId,"Task Reject");
                             }
 
-                            if (DateTime.Now > item.TaskTime)
+                            if (DateTime.Now > item.TaskTime && DateTime.Now<item.TaskTime+TimeSpan.FromMinutes(1))
                             {
                                 var user = await unitOfWork.UserRepository.GetUserById(item.UserId);
-                                await hub.SendmessageToClient(user.ConnectionId, "Task Reject");
+                                await hub.SendMessageToClient(user.ConnectionId, "Task Reject");
                                 await unitOfWork.AdminRepository.ChangeTaskStatus(item.Id, "Task Rejected");
-                                item.Status = "Reject";
+                                item.Status = "Created";
+                                item.TaskTime = DateTime.Now + TimeSpan.FromHours(6);
                                 await unitOfWork.SaveChangesAsync();
                             }
                         }
@@ -70,7 +70,7 @@ namespace Application.Workers
                     }
                 }
 
-
+                await Task.Delay(TimeSpan.FromSeconds(60));
 
             }
         }

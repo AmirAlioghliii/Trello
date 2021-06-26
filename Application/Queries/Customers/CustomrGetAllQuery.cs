@@ -10,5 +10,6 @@ namespace Application.Queries.Customers
 {
     public class CustomrGetAllQuery : IRequest<IEnumerable<UserTask>>
     {
+        public int CategoryId { get; set; }
     }
 }

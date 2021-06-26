@@ -1,4 +1,5 @@
 ﻿using Application.Commands.Admin;
+using Application.Events;
 using AutoMapper;
 using Infra.Models;
 using Infra.Services;
@@ -15,14 +16,16 @@ using Trello_.Extensions;
 
 namespace Application.CommandHandlers.Admin
 {
-    class AddTaskCommandHandler : IRequestHandler<AddTaskCommand, int>
+    public class AddTaskCommandHandler : IRequestHandler<AddTaskCommand, int>
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
         private readonly IHttpContextAccessor _accessor;
+        private readonly IMediator _mediator;
 
-        public AddTaskCommandHandler(IUnitOfWork unitOfWork, IMapper mapper, IHttpContextAccessor accessor)
+        public AddTaskCommandHandler(IUnitOfWork unitOfWork, IMapper mapper, IHttpContextAccessor accessor, IMediator mediator)
         {
+            _mediator = mediator;
             _accessor = accessor;
             _unitOfWork = unitOfWork;
             _mapper = mapper;
@@ -36,10 +39,13 @@ namespace Application.CommandHandlers.Admin
             await _unitOfWork.AdminRepository.AddTaskAsync(usertask);
             
 
-            SendMessageHub hub = new SendMessageHub(_accessor);
+
             var user = await _unitOfWork.UserRepository.GetUserById(usertask.UserId);
-            await hub.SendmessageToClient(user.ConnectionId, "Your Task");
+           
             await _unitOfWork.SaveChangesAsync();
+
+            await _mediator.Publish(new NewTaskEvent().ConnectionId= user.ConnectionId);
+
             return usertask.Id;
              
         }

@@ -26,7 +26,7 @@ namespace Application.QueryHandlers.Customers
 
         public async Task<IEnumerable<UserTask>> Handle(CustomrGetAllQuery request, CancellationToken cancellationToken)
         {
-            return await _unitOfWork.CustomerRepository.GetAllTasks(_accessor.GetUserId());
+            return await _unitOfWork.CustomerRepository.GetAllTasks(_accessor.GetUserId(),request.CategoryId);
         }
     }
 }

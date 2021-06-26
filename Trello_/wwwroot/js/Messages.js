@@ -1,6 +1,8 @@
 ﻿"use strict";
 
-var connection = new signalR.HubConnectionBuilder().withUrl("/chatHub").build();
+this.connection = new signalR.HubConnectionBuilder()
+    .withUrl("/SendMessageHub", { accessTokenFactory: () => "token" })
+    .build();
 
 //Disable send button until connection is established
 document.getElementById("sendButton").disabled = true;

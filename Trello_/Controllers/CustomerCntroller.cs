@@ -24,12 +24,12 @@ namespace Trello_.Controllers
         }
 
         [HttpPost]
-        public async Task<IEnumerable<UserTask>> GetAllTasks(CustomrGetAllQuery model)
+        public async Task<IEnumerable<UserTask>> GetAllTasksByCategory(CustomrGetAllQuery model)
         {
            return await _mediator.Send(model);
         }
 
-        [HttpPost]
+        [HttpPut]
         public async Task<int> ChangeTasksStatus(CustomerChangeStatusCommand model)
         {
             return await _mediator.Send(model);

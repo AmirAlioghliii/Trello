@@ -7,31 +7,20 @@ using System.Text;
 using System.Threading.Tasks;
 using Trello_.Data;
 
-namespace Infra.Services
+namespace Infra.Repositories
 {
-    public class AdminRepository : IAdminRepository
+    public class UserTaskRepository : IUserTaskRepository
     {
         private readonly ApplicationDbContext _context;
 
-        public AdminRepository(ApplicationDbContext context)
+        public UserTaskRepository(ApplicationDbContext context)
         {
             _context = context;
-        }
-
-        public async Task AddCategory(Category category)
-        {
-           await _context.AddAsync(category);
         }
 
         public async Task AddTaskAsync(UserTask task)
         {
             await _context.UserTasks.AddAsync(task);
-        }
-
-        public async Task ChangeTaskStatus(int taskId, string status)
-        {
-           var task= await _context.UserTasks.SingleOrDefaultAsync(u => u.Id == taskId);
-            task.Status = status;
         }
 
         public async Task<IEnumerable<UserTask>> GetAllTasks(string adminId)
@@ -47,6 +36,17 @@ namespace Infra.Services
         public async Task<IEnumerable<UserTask>> GetDoneTasks(string adminId)
         {
             return await _context.UserTasks.Where(u => u.AdminId == adminId && u.Status == "Done").ToListAsync();
+        }
+
+        public async Task<UserTask> GetTaskById(int id)
+        {
+            var task = await _context.UserTasks.SingleOrDefaultAsync(u => u.Id == id);
+            return task;
+        }
+
+        public async Task<IEnumerable<UserTask>> GetTasksByCategoryId(string userId, int categoryId)
+        {
+            return await _context.UserTasks.Where(u => u.UserId == userId && u.CategoryId == categoryId).ToListAsync();
         }
     }
 }
