@@ -28,7 +28,7 @@ namespace Application.QueryHandlers.Admin
 
         public async Task<IEnumerable<UserTask>> Handle(AdminGetDoneTasksQuery request, CancellationToken cancellationToken)
         {
-            return await _unitOfWork.AdminRepository.GetDoneTasks(_accessor.GetUserId());
+            return await _unitOfWork.UserTaskRepository.GetDoneTasks(_accessor.GetUserId());
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Infra.Repositories;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,8 +13,8 @@ namespace Infra.Services
         Task BeginTransactionAsync();
         Task CommitAsync();
         Task RollBackAsync();
-        public IAdminRepository AdminRepository { get; }
-        public ICustomerRepository CustomerRepository { get; }
-        public IUserRepository UserRepository { get;  }
+        public ICategoryRepository CategoryRepository { get; }
+        public IUserTaskRepository UserTaskRepository { get; }
+        public IUserRepository UserRepository { get; }
     }
 }

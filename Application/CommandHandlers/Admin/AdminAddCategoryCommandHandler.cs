@@ -26,7 +26,7 @@ namespace Application.CommandHandlers.Admin
         public async Task<int> Handle(AdminAddCategoryCommand request, CancellationToken cancellationToken)
         {
             var category = _mapper.Map<Category>(request);
-            await _unitOfWork.AdminRepository.AddCategory(category);
+            await _unitOfWork.CategoryRepository.AddCategory(category);
             await _unitOfWork.SaveChangesAsync();
             return category.Id;
         }

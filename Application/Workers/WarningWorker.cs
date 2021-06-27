@@ -1,4 +1,6 @@
-﻿using Infra.Services;
+﻿using Application.Events;
+using Infra.Services;
+using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
@@ -36,6 +38,7 @@ namespace Application.Workers
                        
                         var unitOfWork = scope.ServiceProvider.GetRequiredService<IUnitOfWork>();
                         var accessor = scope.ServiceProvider.GetRequiredService<IHttpContextAccessor>();
+                        var mediator = scope.ServiceProvider.GetRequiredService<IMediator>();
                         SendMessageHub hub = new SendMessageHub(accessor);
 
                         var tasks = await unitOfWork.UserRepository.GetAllTasks();
@@ -46,17 +49,17 @@ namespace Application.Workers
                             if (DateTime.Now> item.TaskTime-TimeSpan.FromHours(1)&& DateTime.Now < item.TaskTime-TimeSpan.FromMinutes(59))
                             {
                                 var user =await unitOfWork.UserRepository.GetUserById(item.UserId);
-                                await hub.SendMessageToClient(user.ConnectionId,"Task Reject");
+                                await mediator.Send(new AlarmEvent() { ConecctionId = user.ConnectionId, Message = "Task Reject" });
                             }
 
                             if (DateTime.Now > item.TaskTime && DateTime.Now<item.TaskTime+TimeSpan.FromMinutes(1))
                             {
                                 var user = await unitOfWork.UserRepository.GetUserById(item.UserId);
-                                await hub.SendMessageToClient(user.ConnectionId, "Task Reject");
-                                await unitOfWork.AdminRepository.ChangeTaskStatus(item.Id, "Task Rejected");
                                 item.Status = "Created";
                                 item.TaskTime = DateTime.Now + TimeSpan.FromHours(6);
                                 await unitOfWork.SaveChangesAsync();
+
+                                await mediator.Send(new AlarmEvent() { ConecctionId = user.ConnectionId, Message = "Task Reject" });
                             }
                         }
                         

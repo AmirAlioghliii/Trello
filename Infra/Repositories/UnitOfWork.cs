@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Infra.Repositories;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,34 +17,31 @@ namespace Infra.Services
             _context = context;
         }
 
-        private IAdminRepository _adminRepository;
-        private ICustomerRepository _customerRepository;
         private IUserRepository _userRepository;
-
-        public IAdminRepository AdminRepository => _adminRepository ??= new AdminRepository(_context);
-
-        public ICustomerRepository CustomerRepository => _customerRepository ??= new CustomerRepository(_context);
+        private IUserTaskRepository _userTaskRepository;
+        private ICategoryRepository _categoryRepository;
 
         public IUserRepository UserRepository => _userRepository ??= new UserRepository(_context);
 
+        public ICategoryRepository CategoryRepository => _categoryRepository ??= new CategoryRepository(_context);
+
+        public IUserTaskRepository UserTaskRepository => _userTaskRepository ??= new UserTaskRepository(_context);
+
         public async Task BeginTransactionAsync()
         {
-           await _context.Database.BeginTransactionAsync();
         }
 
         public async Task CommitAsync()
         {
-            await _context.Database.CommitTransactionAsync();
         }
 
         public async Task RollBackAsync()
         {
-            await _context.Database.RollbackTransactionAsync();
         }
 
         public async Task<int> SaveChangesAsync()
         {
-           return await _context.SaveChangesAsync();
+            return await _context.SaveChangesAsync();
         }
     }
 }

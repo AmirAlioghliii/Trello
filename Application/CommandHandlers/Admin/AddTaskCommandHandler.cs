@@ -36,7 +36,7 @@ namespace Application.CommandHandlers.Admin
             var usertask = _mapper.Map<UserTask>(request);
             usertask.TaskTime = DateTime.Now + TimeSpan.FromHours(6);
             usertask.AdminId = _accessor.GetUserId();
-            await _unitOfWork.AdminRepository.AddTaskAsync(usertask);
+            await _unitOfWork.UserTaskRepository.AddTaskAsync(usertask);
             
 
 
