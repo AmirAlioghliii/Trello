@@ -34,7 +34,6 @@ C:\Trello\Trello\Infra\bin\Debug\net5.0\Infra.runtimeconfig.dev.json
 C:\Trello\Trello\Infra\bin\Debug\net5.0\Infra.dll
 C:\Trello\Trello\Infra\bin\Debug\net5.0\ref\Infra.dll
 C:\Trello\Trello\Infra\bin\Debug\net5.0\Infra.pdb
-C:\Trello\Trello\Infra\obj\Debug\net5.0\Infra.csproj.AssemblyReference.cache
 C:\Trello\Trello\Infra\obj\Debug\net5.0\Infra.GeneratedMSBuildEditorConfig.editorconfig
 C:\Trello\Trello\Infra\obj\Debug\net5.0\Infra.AssemblyInfoInputs.cache
 C:\Trello\Trello\Infra\obj\Debug\net5.0\Infra.AssemblyInfo.cs
@@ -43,3 +42,4 @@ C:\Trello\Trello\Infra\obj\Debug\net5.0\Infra.dll
 C:\Trello\Trello\Infra\obj\Debug\net5.0\ref\Infra.dll
 C:\Trello\Trello\Infra\obj\Debug\net5.0\Infra.pdb
 C:\Trello\Trello\Infra\obj\Debug\net5.0\Infra.genruntimeconfig.cache
+C:\Trello\Trello\Infra\obj\Debug\net5.0\Infra.csproj.AssemblyReference.cache

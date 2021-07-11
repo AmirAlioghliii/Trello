@@ -1,6 +1,8 @@
-﻿using Infra.Models;
+﻿using Dapper;
+using Infra.Models;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,15 +12,23 @@ namespace Infra.Repositories
 {
     public class CategoryRepository:ICategoryRepository
     {
-        private readonly ApplicationDbContext _context;
+        private readonly IDbConnection _dbConnection;
 
-        public CategoryRepository(ApplicationDbContext context)
+        public CategoryRepository(IDbConnection dbConnection)
         {
-            _context = context;
+            _dbConnection = dbConnection;
         }
+
         public async Task AddCategory(Category category)
         {
-            await _context.AddAsync(category);
+            string Query = "Insert Into Categories (Name ) Values (@Name )";
+            if (_dbConnection.State != ConnectionState.Open)
+            {
+                _dbConnection.Open();
+
+            }
+            await _dbConnection.QueryAsync<Category>(Query, new { @Id = category.Id, @Name = category.Name});
         }
+
     }
 }

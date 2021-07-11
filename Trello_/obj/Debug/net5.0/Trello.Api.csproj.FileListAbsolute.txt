@@ -157,7 +157,6 @@ C:\Trello\Trello\Trello_\obj\Debug\net5.0\Trello.Api.GeneratedMSBuildEditorConfi
 C:\Trello\Trello\Trello_\obj\Debug\net5.0\Trello.Api.AssemblyInfoInputs.cache
 C:\Trello\Trello\Trello_\obj\Debug\net5.0\Trello.Api.AssemblyInfo.cs
 C:\Trello\Trello\Trello_\obj\Debug\net5.0\Trello.Api.csproj.CoreCompileInputs.cache
-C:\Trello\Trello\Trello_\obj\Debug\net5.0\Trello.Api.MvcApplicationPartsAssemblyInfo.cs
 C:\Trello\Trello\Trello_\obj\Debug\net5.0\Trello.Api.MvcApplicationPartsAssemblyInfo.cache
 C:\Trello\Trello\Trello_\obj\Debug\net5.0\Trello.Api.RazorAssemblyInfo.cache
 C:\Trello\Trello\Trello_\obj\Debug\net5.0\Trello.Api.RazorAssemblyInfo.cs
@@ -176,3 +175,5 @@ C:\Trello\Trello\Trello_\obj\Debug\net5.0\Trello.Api.dll
 C:\Trello\Trello\Trello_\obj\Debug\net5.0\ref\Trello.Api.dll
 C:\Trello\Trello\Trello_\obj\Debug\net5.0\Trello.Api.pdb
 C:\Trello\Trello\Trello_\obj\Debug\net5.0\Trello.Api.genruntimeconfig.cache
+C:\Trello\Trello\Trello_\bin\Debug\net5.0\Dapper.dll
+C:\Trello\Trello\Trello_\obj\Debug\net5.0\Trello.Api.MvcApplicationPartsAssemblyInfo.cs

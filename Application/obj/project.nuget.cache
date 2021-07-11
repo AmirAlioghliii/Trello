@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "isz2UlpVBir/TcPw7qBLIwO3jz+IDnbMtnguHZ6Bd5lR9dTEEtAANhLZcidTzwhPeu6Z8xjKKMhzSbdES8+99Q==",
+  "dgSpecHash": "waSRnhO2kDpnKXOPvRv6nbY2ePXe28cetcRw7FLccv1y4Oupe4BPISvfBoL1SAQ8Iktg4z6a5g60TfX45HrVjA==",
   "success": true,
   "projectFilePath": "C:\\Trello\\Trello\\Application\\Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Amir\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
     "C:\\Users\\Amir\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\8.1.1\\automapper.extensions.microsoft.dependencyinjection.8.1.1.nupkg.sha512",
+    "C:\\Users\\Amir\\.nuget\\packages\\dapper\\2.0.90\\dapper.2.0.90.nupkg.sha512",
     "C:\\Users\\Amir\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Amir\\.nuget\\packages\\mediatr\\9.0.0\\mediatr.9.0.0.nupkg.sha512",
     "C:\\Users\\Amir\\.nuget\\packages\\mediatr.extensions.microsoft.dependencyinjection\\9.0.0\\mediatr.extensions.microsoft.dependencyinjection.9.0.0.nupkg.sha512",

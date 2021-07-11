@@ -57,7 +57,7 @@ namespace Application.Workers
                                 var user = await unitOfWork.UserRepository.GetUserById(item.UserId);
                                 item.Status = "Created";
                                 item.TaskTime = DateTime.Now + TimeSpan.FromHours(6);
-                                await unitOfWork.SaveChangesAsync();
+                                //await unitOfWork.SaveChangesAsync();
 
                                 await mediator.Send(new AlarmEvent() { ConecctionId = user.ConnectionId, Message = "Task Reject" });
                             }

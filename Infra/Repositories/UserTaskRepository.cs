@@ -1,7 +1,9 @@
-﻿using Infra.Models;
+﻿using Dapper;
+using Infra.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,42 +13,92 @@ namespace Infra.Repositories
 {
     public class UserTaskRepository : IUserTaskRepository
     {
-        private readonly ApplicationDbContext _context;
+        private readonly IDbConnection _dbConnection;
 
-        public UserTaskRepository(ApplicationDbContext context)
+        public UserTaskRepository(IDbConnection dbConnection)
         {
-            _context = context;
+            _dbConnection = dbConnection;
         }
 
         public async Task AddTaskAsync(UserTask task)
         {
-            await _context.UserTasks.AddAsync(task);
+            string Query = "INSERT INTO UserTasks (Name, UserId, CategoryId,AdminId,TaskTime) VALUES (@Name, @UserId, @CategoryId,@AdminId,@TaskTime) ";
+            if (_dbConnection.State != ConnectionState.Open)
+            {
+                _dbConnection.Open();
+
+            }
+            await _dbConnection.QueryAsync<UserTask>(Query,
+                new { @Name = task.Name, @UserId = task.UserId, @CategoryId = task.CategoryId, @AdminId = task.AdminId, @TaskTime = task.TaskTime });
         }
 
         public async Task<IEnumerable<UserTask>> GetAllTasks(string adminId)
         {
-            return await _context.UserTasks.Where(u => u.AdminId == adminId).ToListAsync();
+            string Query = "select * from UserTasks where AdminId=@adminID";
+            if (_dbConnection.State != ConnectionState.Open)
+            {
+                _dbConnection.Open();
+
+            }
+            return await _dbConnection.QueryAsync<UserTask>(Query, new { @adminID = adminId });
         }
 
         public async Task<IEnumerable<UserTask>> GetArchiveTasks(string adminId)
         {
-            return await _context.UserTasks.Where(u => u.AdminId == adminId && u.Status == "Verify").ToListAsync();
+            string Query = "select * from UserTasks Where AdminId=@adminId and Status = 'Verify'";
+            if (_dbConnection.State != ConnectionState.Open)
+            {
+                _dbConnection.Open();
+
+            }
+            return await _dbConnection.QueryAsync<UserTask>(Query, new { adminId = adminId });
         }
 
         public async Task<IEnumerable<UserTask>> GetDoneTasks(string adminId)
         {
-            return await _context.UserTasks.Where(u => u.AdminId == adminId && u.Status == "Done").ToListAsync();
+            string Query = "select * from UserTasks Where AdminId=@adminId and Status = 'Done'";
+            if (_dbConnection.State != ConnectionState.Open)
+            {
+                _dbConnection.Open();
+
+            }
+            return await _dbConnection.QueryAsync<UserTask>(Query, new { adminId = adminId });
         }
 
         public async Task<UserTask> GetTaskById(int id)
         {
-            var task = await _context.UserTasks.SingleOrDefaultAsync(u => u.Id == id);
-            return task;
+            string Query = "select * from UserTasks where Id =@id";
+            if (_dbConnection.State != ConnectionState.Open)
+            {
+                _dbConnection.Open();
+
+            }
+            return await _dbConnection.QuerySingleOrDefaultAsync<UserTask>(Query, new { @id = id });
         }
 
         public async Task<IEnumerable<UserTask>> GetTasksByCategoryId(string userId, int categoryId)
         {
-            return await _context.UserTasks.Where(u => u.UserId == userId && u.CategoryId == categoryId).ToListAsync();
+            string Query = "select * from UserTasks Where UserId = @userId and UserId =@categoryId ";
+            if (_dbConnection.State != ConnectionState.Open)
+            {
+                _dbConnection.Open();
+
+            }
+            return await _dbConnection.QueryAsync<UserTask>(Query, new { @userId = userId, @categoryId = categoryId });
+
+        }
+
+        public async Task UpdateTaskAsnc(UserTask task)
+        {
+            string Query = "UPDATE UserTasks set Status=@status ,TaskTime=@TaskTime Where Id=@Id";
+
+            if (_dbConnection.State != ConnectionState.Open)
+            {
+                _dbConnection.Open();
+
+            }
+            await _dbConnection.QueryAsync<UserTask>(Query, new { @status = task.Status, @TaskTime = task.TaskTime, @Id = task.Id });
+
         }
     }
 }

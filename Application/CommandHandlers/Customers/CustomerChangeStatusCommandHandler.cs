@@ -26,7 +26,8 @@ namespace Application.CommandHandlers.Customers
         {
             var task=await _unitOfWork.UserTaskRepository.GetTaskById(request.TaskId);
             task.Status="Done";
-            await _unitOfWork.SaveChangesAsync();
+            //await _unitOfWork.SaveChangesAsync();
+            await _unitOfWork.UserTaskRepository.UpdateTaskAsnc(task);
             var user =await _unitOfWork.UserRepository.GetUserById(task.AdminId);
             await _mediator.Publish(new UserChangeStatusEvent() { ConnectionId = user.ConnectionId });
             return request.TaskId;

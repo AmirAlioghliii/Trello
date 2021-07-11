@@ -13,5 +13,7 @@ namespace Infra.Services
         Task<ApplicationUser> GetUserByEmailAsync(string email);
         Task<IEnumerable< UserTask>> GetAllTasks();
         Task<ApplicationUser> GetUserById(string id);
+
+
     }
 }

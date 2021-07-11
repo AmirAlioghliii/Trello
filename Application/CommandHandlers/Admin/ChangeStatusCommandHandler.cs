@@ -27,10 +27,11 @@ namespace Application.CommandHandlers.Admin
             var task=await _unitofwork.UserTaskRepository.GetTaskById(request.Id);
             task.Status = request.Status;
             task.TaskTime = DateTime.Now + TimeSpan.FromHours(6);
-            await _unitofwork.SaveChangesAsync();
+            await _unitofwork.UserTaskRepository.UpdateTaskAsnc(task);
+            //await _unitofwork.SaveChangesAsync();
 
             var user =await _unitofwork.UserRepository.GetUserById(task.UserId);
-            await _mediator.Publish(new AdminChangeStatusEvent() { ConnectionId = user.ConnectionId, Status = request.Status });
+            await _mediator.Publish(new AdminChangeStatusEvent() { ConnectionId = user.ConnectionId, Message = request.Status });
 
             return request.Id;
 

@@ -20,8 +20,4 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="5.0.7" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="QueryHandlers\Users\" />
-  </ItemGroup>
-
 </Project>

@@ -27,7 +27,7 @@ namespace Application.CommandHandlers.Admin
         {
             var category = _mapper.Map<Category>(request);
             await _unitOfWork.CategoryRepository.AddCategory(category);
-            await _unitOfWork.SaveChangesAsync();
+            //await _unitOfWork.SaveChangesAsync();
             return category.Id;
         }
     }

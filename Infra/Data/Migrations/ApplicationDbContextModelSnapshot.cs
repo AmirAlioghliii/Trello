@@ -287,8 +287,8 @@ namespace Infra.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "9feb39f6-4436-43f0-8972-28073a13a41e",
-                            ConcurrencyStamp = "6c545752-d4bc-47f2-ac28-9548ec669275",
+                            Id = "192f282a-58f7-4d7f-a7ea-08c610eea14e",
+                            ConcurrencyStamp = "60d70055-35c3-4599-8e01-b2f28d3a0e15",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         });

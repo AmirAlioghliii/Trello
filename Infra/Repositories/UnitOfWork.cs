@@ -1,6 +1,9 @@
 ﻿using Infra.Repositories;
+using Microsoft.Data.SqlClient;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,22 +13,27 @@ namespace Infra.Services
 {
     public class UnitOfWork : IUnitOfWork
     {
-        private readonly ApplicationDbContext _context;
-
-        public UnitOfWork(ApplicationDbContext context)
+        //private readonly ApplicationDbContext _context;
+        private readonly IConfiguration _configuration;
+        public UnitOfWork(IConfiguration configuration)
         {
-            _context = context;
+            _configuration = configuration;
+           
         }
 
+        private SqlConnection _sqlConnection;
         private IUserRepository _userRepository;
         private IUserTaskRepository _userTaskRepository;
         private ICategoryRepository _categoryRepository;
 
-        public IUserRepository UserRepository => _userRepository ??= new UserRepository(_context);
+        public IDbConnection DbConnection => _sqlConnection ??= new SqlConnection(_configuration.GetConnectionString("DefaultConnection"));
+        public IUserRepository UserRepository => _userRepository ??= new UserRepository(DbConnection);
 
-        public ICategoryRepository CategoryRepository => _categoryRepository ??= new CategoryRepository(_context);
+        public ICategoryRepository CategoryRepository => _categoryRepository ??= new CategoryRepository(DbConnection);
 
-        public IUserTaskRepository UserTaskRepository => _userTaskRepository ??= new UserTaskRepository(_context);
+        public IUserTaskRepository UserTaskRepository => _userTaskRepository ??= new UserTaskRepository(DbConnection);
+
+       
 
         public async Task BeginTransactionAsync()
         {
@@ -39,9 +47,9 @@ namespace Infra.Services
         {
         }
 
-        public async Task<int> SaveChangesAsync()
-        {
-            return await _context.SaveChangesAsync();
-        }
+        //public async Task<int> SaveChangesAsync()
+        //{
+        //    return await _context.SaveChangesAsync();
+        //}
     }
 }

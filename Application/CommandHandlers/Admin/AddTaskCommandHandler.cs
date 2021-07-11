@@ -42,7 +42,7 @@ namespace Application.CommandHandlers.Admin
 
             var user = await _unitOfWork.UserRepository.GetUserById(usertask.UserId);
            
-            await _unitOfWork.SaveChangesAsync();
+            //await _unitOfWork.SaveChangesAsync();
 
             await _mediator.Publish(new NewTaskEvent().ConnectionId= user.ConnectionId);
 

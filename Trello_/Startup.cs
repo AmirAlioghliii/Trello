@@ -26,6 +26,7 @@ using Infra.Services;
 using Application.Workers;
 using Trello.Api.Hubs;
 using Application.Hubs;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 
 namespace Trello_
 {
@@ -69,6 +70,7 @@ namespace Trello_
                 });
             });
 
+            services.AddSignalR();
             services.AddAutoMapper();
 
             services.AddScoped<IJwtService, JwtService>();
